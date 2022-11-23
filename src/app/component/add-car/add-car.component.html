@@ -1,0 +1,88 @@
+<div>
+    <mat-stepper  #stepper>
+        <mat-step [stepControl]="firstFormGroup">
+            <form [formGroup]="firstFormGroup">
+                <ng-template matStepLabel>Add Car Details</ng-template>
+                
+                <div class="container-fluid">
+                    <div class="row">
+                        <form >
+                            <div class="mb-3">
+                                <h3 class="text-dark text-muted">Add Car Details</h3>
+                            </div>
+                            <div class="mb-4">
+                                <label for="exampleInputEmail1" class="form-label" >Brand</label>
+                                <input type="text" class="form-control" name="brand" [(ngModel)]="brand">
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Model of Brand</label>
+                                <input type="text" class="form-control" name="model"  [(ngModel)]="model">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Km</label>
+                                <input type="number" class="form-control" name="km" [(ngModel)]="km" >
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Year Of The Car</label>
+                                <input type="number" class="form-control" name="year" [(ngModel)]="year">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Shift Type</label>
+                                <input type="text" class="form-control" name="shift" [(ngModel)]="shift">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Fuel Type</label>
+                                <input type="text" class="form-control" name="fuel" [(ngModel)]="fuel">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Color Of the Car</label>
+                                <input type="text" class="form-control" name="color" [(ngModel)]="color">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >Car Type</label>
+                                <input type="text" class="form-control" name="car_type" [(ngModel)]="car_type">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >E-Car</label>
+                                <input type="text" class="form-control" name="e_car" [(ngModel)]="e_car">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+             
+              
+            </form>
+        </mat-step>
+        <mat-step [stepControl]="secondFormGroup">
+            <form [formGroup]="secondFormGroup">
+                <ng-template matStepLabel>Damaged Records</ng-template>
+                <div class="container-fluid">
+                    <div class="row">
+                        <form *ngFor="let value of values">
+                            <div class="mb-3">
+                                <h3 class="text-dark text-muted">Damaged Form</h3>
+                            </div>
+                            <div class="mb-4">
+                                <label for="exampleInputEmail1" class="form-label" >Which piece of the car has a problem</label>
+                                <input type="text" class="form-control" name="problem" [(ngModel)]="value.problem">
+                            </div>
+            
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1" class="form-label" >How much money does it cost?</label>
+                                <input type="number" class="form-control" name="cost" [(ngModel)]="value.cost">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div>
+                    <button type="submit" class="btn btn-primary" (click)="addForm()" >Plus </button>
+                </div>
+               
+            </form>
+        </mat-step>
+    
+    </mat-stepper>
+</div>
+

@@ -1,0 +1,39 @@
+
+<div class="container">
+    <div class="row align-items-center vh-100">
+        <div class="col-6 mx-auto mt-5">
+            <div class="card shadow border">
+                <div class="card-body">
+                    <form [formGroup]="registerForm" (ngSubmit)="register()">
+                        <div class="mb-3">
+                            <h3 class="text-dark text-muted">Register</h3>
+                        </div>
+                        <div class="mb-3">
+                            <label  class="form-label">Email address</label>
+                            <input type="email" class="form-control" name="email" formControlName="email">
+                            <br>
+                            <span class="text-danger" *ngIf="email && email.invalid && email.touched">Please enter
+                                Email</span>
+                        </div>
+    
+                        <div class="mb-3">
+                            <label  class="form-label">Password</label>
+                            <input type="password" class="form-control" name="password" formControlName="password">
+                            <br>
+                            <span class="text-danger" *ngIf="password && password.invalid && password.touched">Password
+                                should contains 6 characters</span>
+                        </div>
+    
+                        <button type="submit" class="btn btn-primary" [disabled]="registerForm.invalid">Register </button>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <a href="/login" style="text-decoration:none;">Have an account? <span
+                                        class="text-danger">Login</span></a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

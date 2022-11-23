@@ -1,0 +1,63 @@
+<div class="container">
+
+    <form>
+        <div class="form-group form-group-sm row mb-5 mt-5 ml-5">
+            <div class="col-sm-10">
+                <input class="form-control" type="text" id="sm"
+                    placeholder="Filer Car By Model, Color, Brand, Shift, Year" name="filterString" [(ngModel)]="filterString" />
+
+            </div>
+            <span class="mt-2 mr-2">
+                <a href="/addCar" style="text-decoration:none;">Add Car</a>
+            </span>
+        </div>
+       
+    </form>
+
+    <div infiniteScroll (scrolled)="onScroll()">
+        <div class="row col-12">
+            <div class="card col-4 mb-2" *ngFor="let car of carDetails | filter:filterString">
+                <div class="card shadow">
+                    <div class="card-body">
+                        <h4 class="card-title"><span class="font-weight-bold">Brand: </span> {{car.brand}}</h4>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> Model:</span> <span class=" text-muted">
+                                    {{car.model}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> KM:</span> <span class=" text-muted"> {{car.km}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> Year:</span> <span class=" text-muted">
+                                    {{car.year}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> Shift:</span> <span class=" text-muted">
+                                    {{car.shift}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> Fuel:</span> <span class=" text-muted">
+                                    {{car.fuel}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> Color:</span> <span class=" text-muted">
+                                    {{car.color}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> Car Type:</span> <span class=" text-muted">
+                                    {{car.car_type}}</span>
+                            </div>
+                            <div class="col-md-6">
+                                <span class="font-weight-bold"> E Car:</span> <span class=" text-muted">
+                                    {{car.e_car}}</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
